@@ -29,6 +29,18 @@ Important notes & setup
 - The CSV file ID is referenced in the code (example ID used: `1nEAyOeh9Z056XhyrDXcPn1FkGecch1y1`). Update the file ID in `backendd/src/controllers/transactionsController.js` / `backendd/src/controllers/filtersController.js` or pass it via a small config if you prefer.
 - Default port: `4000`. You can set `PORT` in the environment when starting the app.
 
+Service account credentials (credentials.json)
+
+To stream files from Google Drive the backend uses a Google service account key. Follow these steps to create and use credentials safely:
+
+1. Go to the Google Cloud Console and open (or create) the project that owns the Drive file.
+2. In **IAM & Admin > Service accounts** create a new service account (give it a name like `truestate-backend-sa`).
+3. Grant the service account access to the Drive file (you can share the Drive file with the service account email), or grant a minimal role that allows readonly access to the file if appropriate.
+4. Create a JSON key for the service account and download it. Save the file as `credentials.json` in the `backendd` directory (next to `package.json`).
+5. IMPORTANT: Do NOT commit `credentials.json`. This repository already contains `.gitignore` which excludes `credentials.json`.
+
+If you'd like to keep a trackable example, use `credentials.example.json` (no secrets) as a template and store your real key only locally.
+
 Running locally
 1. Install dependencies and start the server:
 
