@@ -1,0 +1,17 @@
+node_modules/
+credentials.json
+.env
+dist/
+build/
+npm-debug.log
+yarn-error.log
+package-lock.json
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# OS files
+Thumbs.db
+*.swp
